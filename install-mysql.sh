@@ -7,7 +7,7 @@ Y="\e[33m"
  
 if [ $USERID -ne 0 ]
 then
-    echo "$R Error::: RUn with root user"
+    echo -e "$R Error::: RUn with root user"
     exit 1
 else
     echo "$G Script started running successfully"
