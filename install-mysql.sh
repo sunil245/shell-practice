@@ -10,7 +10,7 @@ else
     echo "Script started running successfully"
 fi
 
-dnf install mysql
+dnf install mysql -y
 
 if [ $? -eq 0 ]
 then
