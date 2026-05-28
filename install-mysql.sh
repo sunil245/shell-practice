@@ -10,6 +10,16 @@ else
     echo "Script started running successfully"
 fi
 
+dnf list installed mysql
+
+if [ $? -eq 0 ]
+then
+    echo "mysql is already installed"
+    exit 1
+else
+    echo "mysql is not installed starting to install"
+fi
+
 dnf install mysql -y
 
 if [ $? -eq 0 ]
