@@ -10,22 +10,23 @@ else
     echo "Script started running successfully"
 fi
 
+
+VALIDATE(){
+    if [ $1 -eq 0 ]
+    then
+        echo "$2 is already installed"
+        exit 1
+    else
+        echo "$2 is not installed starting to install"
+    fi
+}
+
 dnf list installed mysql
-
-if [ $? -eq 0 ]
-then
-    echo "mysql is already installed"
-    exit 1
+if [ $? -ne 0 ] 
+then 
+    echo "mysql is not installed go and install"
+    dnf install mysql -y
+    VALIDATE $? "MYSQL"
 else
-    echo "mysql is not installed starting to install"
-fi
-
-dnf install mysql -y
-
-if [ $? -eq 0 ]
-then
-    echo "installing mysql is success"
-else
-    echo "installing mysql is failed"
-    exit 1
+    echo "Mysql is already installed nothing to do"
 fi
