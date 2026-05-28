@@ -5,12 +5,12 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
     echo "Error::: RUn with root user"
-    #exit 1
+    exit 1
 else
     echo "Script started running successfully"
 fi
 
-dnf install mysqlhb
+dnf install mysql
 
 if [ $? -eq 0 ]
 then
