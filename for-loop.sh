@@ -15,7 +15,7 @@ else
     echo -e "$G Script started running successfully $N"
 fi
 
-for package in ${PACKGAES[@]}
+for package in $@
 do
     dnf list installed $package
     if [ $? -ne 0 ]
